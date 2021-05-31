@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "c85694ee-fdc9-49cd-8638-f0e6c93338ff",
+		"name": "DCAPI-POCMay21",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ToolChain",
+			"item": [
+				{
+					"name": "CreateToolChain-Options",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    });\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ACTIVE\");\r",
+									"});\r",
+									"/*pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"Pramod\");\r",
+									"}); */\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"token\",pm.environment.get(\"token\"));\r",
+									"\r",
+									"//console.log(pm.environment.get(\"token\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{dcbaseurl}}/field?tenantId=124&type=toolchain&value=purpose",
+							"host": [
+								"{{dcbaseurl}}"
+							],
+							"path": [
+								"field"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "124"
+								},
+								{
+									"key": "type",
+									"value": "toolchain"
+								},
+								{
+									"key": "value",
+									"value": "purpose"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manage_Toolchain",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"token\",pm.environment.get(\"token\"));\r",
+									"\r",
+									"//console.log(pm.environment.get(\"token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dcbaseurl}}/managetoolchain?tenantId=2&orgId=1&objectType=devOps",
+							"host": [
+								"{{dcbaseurl}}"
+							],
+							"path": [
+								"managetoolchain"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "2"
+								},
+								{
+									"key": "orgId",
+									"value": "1"
+								},
+								{
+									"key": "objectType",
+									"value": "devOps"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"//pm.variables.get(\"token\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "ManageProject",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"console.log();"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"token\",pm.environment.get(\"token\"));\r",
+									"\r",
+									"//console.log(pm.environment.get(\"token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dcbaseurl}}/project?tenantId=2&orgId=1",
+							"host": [
+								"{{dcbaseurl}}"
+							],
+							"path": [
+								"project"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "2"
+								},
+								{
+									"key": "orgId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Tenant",
+			"item": [
+				{
+					"name": "ManageTenant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    //pm.response.to.have.body(\"ACTIVE\");\r",
+									"});\r",
+									"//  using response assertions\r",
+									"//console.log(response);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"token\",pm.environment.get(\"token\"));\r",
+									"\r",
+									"//console.log(pm.environment.get(\"token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dcbaseurl}}/tenantmeta?tenantId=1",
+							"host": [
+								"{{dcbaseurl}}"
+							],
+							"path": [
+								"tenantmeta"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "ManageOrganization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"token\",pm.environment.get(\"token\"));\r",
+									"\r",
+									"//console.log(pm.environment.get(\"token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dcbaseurl}}/organization?tenantId=2",
+							"host": [
+								"{{dcbaseurl}}"
+							],
+							"path": [
+								"organization"
+							],
+							"query": [
+								{
+									"key": "tenantId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{dc_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const tokenUrl = 'https://dc-test-oauth.dcprod-7e2996fc95fd6eb4a4c7a63aa3e73699-0001.us-south.containers.appdomain.cloud/oauth/token';",
+					"",
+					"//const grant_value='password';",
+					"//const userName = 'jjaniwar@in.ibm.com';",
+					"//const passWord = 'pass';",
+					"",
+					"const getTokenRequest = {",
+					"  method: 'POST',",
+					"  url: tokenUrl,",
+					"  header: {",
+					"            //\"Accept\": \"application/json\",",
+					"            \"Authorization\": \"Basic Y2xpZW50SWQ6c2VjcmV0\"",
+					"          },",
+					"  body: {",
+					"      mode: 'formdata',",
+					"      formdata: [",
+					"          { key: 'grant_type', value: 'password'},",
+					"          { key: 'username', value: 'jjaniwar@in.ibm.com' },",
+					"          { key: 'password', value: 'pass' }",
+					"      ]",
+					"  }",
+					"};",
+					"",
+					"pm.sendRequest(getTokenRequest, (err, response) => {",
+					"  const jsonResponse = response.json();",
+					"  const token = jsonResponse.access_token;",
+					"",
+					" // pm.variables.set('access_token', token);",
+					"  //pm.environment.set('access_token', token);",
+					"  pm.collectionVariables.set(\"dc_token\", jsonResponse.access_token );",
+					"  console.log(\"dc_token\");",
+					"});",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": ""
+		},
+		{
+			"key": "dc_token",
+			"value": ""
+		}
+	]
+}
